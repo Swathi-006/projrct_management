@@ -1,0 +1,358 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Management System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="brand-icon">
+                <i class="fa-solid fa-layer-group"></i>
+            </div>
+            <span>ProjectHub</span>
+        </div>
+
+        <p class="menu-label">WORKSPACE</p>
+
+        <nav>
+            <a href="#dashboard" class="nav-link active">
+                <i class="fa-solid fa-chart-pie"></i> Dashboard
+            </a>
+            <a href="#projects" class="nav-link">
+                <i class="fa-solid fa-folder"></i> Projects
+            </a>
+            <a href="#tasks" class="nav-link">
+                <i class="fa-solid fa-list-check"></i> My Tasks
+            </a>
+            <a href="#create" class="nav-link">
+                <i class="fa-solid fa-plus-circle"></i> Create Project
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="help-box">
+                <i class="fa-solid fa-lightbulb"></i>
+                <h4>Stay Productive!</h4>
+                <p>Organize your work and achieve your goals.</p>
+            </div>
+
+            <div class="profile">
+                <div class="avatar">AD</div>
+                <div>
+                    <h4>Admin User</h4>
+                    <small>Project Manager</small>
+                </div>
+                <i class="fa-solid fa-ellipsis"></i>
+            </div>
+        </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <h2>Dashboard</h2>
+                <p>Welcome back! Here's your project overview.</p>
+            </div>
+
+            <div class="top-actions">
+                <span id="today"></span>
+                <div class="notification">
+                    <i class="fa-regular fa-bell"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- DASHBOARD -->
+        <section id="dashboard">
+
+            <div class="welcome-banner">
+                <div>
+                    <span>PROJECT MANAGEMENT WORKSPACE</span>
+                    <h1>Plan smarter.<br>Work better. Achieve more.</h1>
+                    <p>Manage your projects and track your team's performance.</p>
+                    <a href="#create" class="banner-btn">
+                        Create New Project <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="banner-art">
+                    <i class="fa-solid fa-rocket"></i>
+                </div>
+            </div>
+
+            <!-- STATISTICS -->
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <div class="stat-icon purple">
+                        <i class="fa-solid fa-folder-open"></i>
+                    </div>
+                    <p>Total Projects</p>
+                    <h2 id="totalProjects">0</h2>
+                    <small>All created projects</small>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon orange">
+                        <i class="fa-solid fa-spinner"></i>
+                    </div>
+                    <p>In Progress</p>
+                    <h2 id="progressProjects">0</h2>
+                    <small>Active projects</small>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon green">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                    <p>Completed</p>
+                    <h2 id="completedProjects">0</h2>
+                    <small>Successfully completed</small>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon red">
+                        <i class="fa-solid fa-list-check"></i>
+                    </div>
+                    <p>Total Tasks</p>
+                    <h2 id="totalTasks">0</h2>
+                    <small>Across all projects</small>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CREATE PROJECT -->
+        <section class="content-section" id="create">
+            <div class="section-heading">
+                <div>
+                    <h2>Create New Project</h2>
+                    <p>Add a new project to your workspace.</p>
+                </div>
+            </div>
+
+            <div class="form-card">
+                <form id="projectForm">
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label>Project Name</label>
+                            <input type="text" id="projectName" placeholder="Enter project name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Project Manager</label>
+                            <input type="text" id="manager" placeholder="Enter manager name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Start Date</label>
+                            <input type="date" id="startDate" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Deadline</label>
+                            <input type="date" id="deadline" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Project Priority</label>
+                            <select id="priority" required>
+                                <option value="">Select priority</option>
+                                <option>Low</option>
+                                <option>Medium</option>
+                                <option>High</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Project Status</label>
+                            <select id="projectStatus" required>
+                                <option value="Planning">Planning</option>
+                                <option value="In Progress">In Progress</option>
+                                <option value="Completed">Completed</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label>Description</label>
+                            <textarea id="description" rows="3" placeholder="Describe your project..." required></textarea>
+                        </div>
+
+                    </div>
+
+                    <div class="form-footer">
+                        <button type="submit" class="submit-btn">
+                            <i class="fa-solid fa-plus"></i> Create Project
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- PROJECT LIST -->
+        <section class="content-section" id="projects">
+
+            <div class="section-heading">
+                <div>
+                    <h2>All Projects</h2>
+                    <p>Manage and monitor your projects.</p>
+                </div>
+                <span class="count-badge" id="projectCount">0 Projects</span>
+            </div>
+
+            <div class="toolbar">
+                <div class="search-box">
+                    <i class="fa-solid fa-search"></i>
+                    <input type="text" id="searchProject" placeholder="Search projects...">
+                </div>
+
+                <select id="filterProject">
+                    <option value="All">All Status</option>
+                    <option value="Planning">Planning</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Completed">Completed</option>
+                </select>
+            </div>
+
+            <div class="project-grid" id="projectGrid"></div>
+
+            <div class="empty-state" id="emptyProjects">
+                <i class="fa-solid fa-folder-open"></i>
+                <h3>No projects found</h3>
+                <p>Create your first project to get started.</p>
+            </div>
+        </section>
+
+        <!-- TASK MANAGEMENT -->
+        <section class="content-section" id="tasks">
+
+            <div class="section-heading">
+                <div>
+                    <h2>Task Management</h2>
+                    <p>Create and track tasks for your projects.</p>
+                </div>
+            </div>
+
+            <div class="form-card task-form-card">
+                <form id="taskForm">
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label>Task Name</label>
+                            <input type="text" id="taskName" placeholder="Enter task name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Select Project</label>
+                            <select id="taskProject" required>
+                                <option value="">Select project</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Assigned To</label>
+                            <input type="text" id="assignedTo" placeholder="Employee name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Task Priority</label>
+                            <select id="taskPriority" required>
+                                <option value="Low">Low</option>
+                                <option value="Medium" selected>Medium</option>
+                                <option value="High">High</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Due Date</label>
+                            <input type="date" id="taskDeadline" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Task Status</label>
+                            <select id="taskStatus">
+                                <option>To Do</option>
+                                <option>In Progress</option>
+                                <option>Completed</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="form-footer">
+                        <button type="submit" class="submit-btn">
+                            <i class="fa-solid fa-plus"></i> Add Task
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+
+            <div class="table-card">
+                <div class="toolbar task-toolbar">
+                    <div class="search-box">
+                        <i class="fa-solid fa-search"></i>
+                        <input type="text" id="searchTask" placeholder="Search tasks...">
+                    </div>
+
+                    <select id="filterTask">
+                        <option value="All">All Tasks</option>
+                        <option value="To Do">To Do</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Completed">Completed</option>
+                    </select>
+                </div>
+
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>TASK</th>
+                                <th>PROJECT</th>
+                                <th>ASSIGNED TO</th>
+                                <th>PRIORITY</th>
+                                <th>DUE DATE</th>
+                                <th>STATUS</th>
+                                <th>ACTION</th>
+                            </tr>
+                        </thead>
+                        <tbody id="taskTable"></tbody>
+                    </table>
+                </div>
+
+                <div class="empty-state" id="emptyTasks">
+                    <i class="fa-solid fa-list-check"></i>
+                    <h3>No tasks found</h3>
+                    <p>Add a task to start tracking your work.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            © 2026 ProjectHub. All rights reserved.
+            <span>Designed for smarter project management.</span>
+        </footer>
+
+    </main>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
